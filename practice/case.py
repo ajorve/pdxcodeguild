@@ -22,3 +22,7 @@ def which_case(word):
         return "snake_case."
     else:
         return "CamelCase."
+
+    return result
+
+
