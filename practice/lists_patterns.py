@@ -2,7 +2,7 @@
 Implement solutions in as many ways as possible.
 
 - Increment
-- Enumertate
+- Enumerate
 - Range
 - For Each
 
@@ -25,3 +25,16 @@ i 31
 c 12
 
 """
+
+def display_indexes(index_a):
+    for index, letter in enumerate(index_a):
+        print(letter, index)
+
+def parallel(index_a, index_b):
+    for x, y in zip(index_a, index_b):
+        print(x, y)
+
+def index_range(index_a, index_b):
+    combined_indexes = index_a + index_b
+    for index, x in range(combined_indexes):
+        print(x)
