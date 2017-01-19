@@ -1,3 +1,0 @@
-# Private Object Properties
-
-Just
