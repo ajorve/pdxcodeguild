@@ -23,7 +23,7 @@ def fizz_buzz(stop_num):
 
     for each_number in range(1, stop_num + 1):
 
-        if each_number % 3 == 0 and each_number % 5 == 0:
+        if each_number % 3 == 0 and each_number % 5 == 0:  #if each_number % 15 == 0:
             number_list.append("FizzBuzz")
 
         elif each_number % 3 == 0:

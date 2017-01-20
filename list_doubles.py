@@ -18,3 +18,7 @@ def apply_to_all(llamas, n):
         else:
             continue
     return my_list
+
+#
+# llamas = int(input("What is the list of numbers you would like multiplied? :: "))
+# n = int(input("What is the number you would like it multiplied by? :: "))
