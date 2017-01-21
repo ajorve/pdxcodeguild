@@ -34,3 +34,45 @@ Write, test, and refactor as you go.
 >>> extracto('3S6pe9cia2l ca5ses ar8en't sp1ecial en4ough to b7reak the r0ules.')
 45
 """
+
+import re
+
+
+def scrub_numbers(sentence):
+    result = re.sub('\d', '', sentence)
+    print(result)
+
+def gentle_clean(sentence):
+    result = re.sub('\s?[_\-]', ' ' , sentence)
+    print(result)
+
+def clean_data(sentence):
+    result = re.sub('_\-]' , ' ', sentence)
+    final_result = re.sub('\d*' , '', result).strip()
+    print(final_result)
+
+def some_scrubber(sentence):
+    result = phrase[::2]
+    print(result)
+
+def mr_clean(sentence):
+    result = sentence.replace('', ' ')
+    print(result)
+
+def ms_clean():
+
+    def shorten(word):
+        return word[0] + str(len(word)-2) + word[-1]
+    result = list()
+
+    for word in phrase.split():
+        result.append(shorten(word))
+
+    final_result = " ".join(result)
+    print(final_result)
+
+def strong_cleaner(sentence):
+
+
+def extracto(sentence):
+    
