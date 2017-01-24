@@ -35,3 +35,41 @@ Use a default argument to allow the user to reverse the order!
 
 
 """
+
+
+def backwards(input_list):
+    input_list.reverse() # or [::-1]
+     return input_list
+
+def maximus(input_list):
+    max_input = max(input_list)
+    check_digit = str(max_input)[0]
+
+    new_input_list = list()
+    for each_number in input_list:
+        if check_digit in str(each_number):
+            new_input_list.append(max_input)
+        else:
+            new_input_list.append(each_number)
+    return new_input_list
+
+def compare_first_element(input_list1, input_list2):
+    if input_list1[0].lower() == input_list2[0].lower():
+        return True
+    else:
+        return False
+
+def compare_second_letter(input_list1, input_list2):
+    if input_list1[1][0].lower() == input_list2[1][0].lower():
+        return True
+    else:
+        return False
+
+def smoosh(input_list1, input_list2, reverse=False):
+    smoosh_list = input_list1 + input_list2
+    if reverse is True:
+        input_list1.reverse() # or [::-1]
+        input_list2.reverse() # or [::-1]
+        smoosh_list = input_list2 + input_list1
+
+    return smoosh_list

@@ -15,3 +15,19 @@ Range: 875
 Entries: 17
 
 """
+
+
+def arb(*args):
+    print('The {a} args are: {b}'.format(a=len(args), b=args))
+
+def stats(*args):
+    max_range = max(args) # defines the max object range in list
+    min_range = min(args) # defines the min object range in list.
+    list_range = max_range - min_range
+
+    print('Sum: {}'.format(sum(args)))
+    print('Max: {}'.format(max(args)))
+    print('Min: {}'.format(min(args)))
+    print('Avg: {}'.format(sum(args) // len(args)))
+    print('Range: {}'.format(list_range))
+    print('Entries: {}'.format(len(args)))

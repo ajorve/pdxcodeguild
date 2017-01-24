@@ -17,3 +17,14 @@ False
 True
 
 """
+
+def palindrome(word):
+
+    word = str(word).lower() ##("What word would you like to check if it's a Palindrone?").lower()
+
+    word= str(word).replace(',', '').replace(' ','')
+
+    if word[::-1] == word:
+        return True
+    else:
+        return False

@@ -11,3 +11,10 @@ indicating the index of each letter occourance in a given test string.
 >>> locate('i', 'mississippi')
 [1, 4, 7, 10]
 """
+
+def locate(check, word):
+    word_list = list()
+    for index, letter in enumerate(word):
+        if letter == check:
+            word_list.append(index)
+    print(word_list)

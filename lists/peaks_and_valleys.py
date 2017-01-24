@@ -19,3 +19,32 @@
 [[1, 2, 3, 4, 5, 6, 7], [6, 5, 4], [5, 6, 7, 8, 9], [8, 7, 6], [7, 8, 9]]
 
 """
+
+def peaks(sample_list):
+    output_list = list()
+
+    for i, num in enumerate(sample_list):
+        if sample_list[i+1] < num and sample_list[i-1] < num:
+            output_list.append(i)
+
+        return output
+
+def valleys(sample_list):
+    output_list = list()
+
+    for i, num in enumerate(sample_list):
+        if sample_list[i+1] > num and sample_list[i-1] > num:
+            output_list.append(i)
+
+        return output
+
+def peaks_and_valleys(sample_list):
+
+    output_list =list()
+
+    output_list.extend(peaks(sample_list) + valleys(sample_list))
+
+    return sorted(output_list, key=abs)
+
+def chop(sample_list):
+#Needs to be finished.

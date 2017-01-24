@@ -16,7 +16,7 @@ touching 2
 yellow 1
 
 
->>> quantify_words("In the end, it's concluded that the airspeed velocity of a \
+>>> quantify_words("In the end, it's concluded that the airspeed velocity of a
 (European) unladen swallow is about 24 miles per hour or 11 meters per second.")
 (european) 1
 11 1
@@ -42,3 +42,29 @@ the 2
 unladen 1
 velocity 1
 """
+
+import sys
+import re
+
+
+def quantify_words():
+    word_counts = dict()
+    question = input("What sentence would you like to quantify? (Leave Blank to Exit) >> ").lower()
+    question = question.replace(',' , '').replace('.' , '').replace('""', '').replace('\n', '') # use regex re.sub('\d\w\W*', '') to remove all special characters and digits.
+    answer = question.split()
+
+    if question == "":
+        sys.exit()
+
+    for word in answer:
+        try:
+            word_counts[word] += 1
+        except KeyError:
+            word_counts[word] = 1
+
+    for word, count in sorted(word_counts.items()):
+        print(word, count)
+
+    return None
+
+quantify_words()

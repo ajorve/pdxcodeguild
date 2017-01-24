@@ -63,13 +63,18 @@ Support searching by:
 Use the Twilio API to send a text message from your program.
 """
 import sys
+import re
+from itertools import groupby
+
+# use regex to verify if number is valid format and query info from dictionaries
+# use groupby to organize and collect info
 
 PHONEBOOK = {'Kieran': {'name': 'Kieran',
                         'number': 8456331959,
                         'phrase': 'Good code is not written, it\'s re-written.'},
-            'Lambda': {'name': 'Lambda',
+            'Anders': {'name': 'Anders',
                          'number': 8454185633,
-                         'phrase': 'I am a robot.'}}
+                         'phrase': 'I am a robot from the Planet X'}}
 
 def main_menu():
     option = (input("Welcome to Mr. Phonebook, please choose from the Menu Options"
@@ -105,8 +110,11 @@ def create():
 
     if create_option == 'y':
         create_name = input("Enter the name of the person you would like to add into the phonebook:   ")
-        create_number = input("Enter the name of the person you would like to add into the phonebook:   ")
-        create_phrase= input("Enter the name of the person you would like to add into the phonebook:   ")
+        create_number = input("Enter the number of the person you would like to add into the phonebook:   ")
+        create_phrase= input("Enter a phrase for the person you would like to add into the phonebook:   ")
+        try:
+
+
         # creates new entry and returns back to asking the question of create_option
 
     elif create_option == 'n':
@@ -118,7 +126,13 @@ def retrieve():
     retrieve_option = input("Would you like to retrieve an entry? y/n :  ").lower()
 
     if retrieve_option == 'y':
-        retrieve_dict= input("Insert the name, number, or phrase of the person you are searching for:  ")
+        retrieve_dict= input("Insert the name, number, or phrase of the person you are searching for:  ").lower()
+        try:
+            print("Name: " + PHONEBOOK[retrieve_dict]['name'])
+            print("Number: " + PHONEBOOK[retrieve_dict]['phone'])
+            print("Phrase: " + PHONEBOOK[retrieve_dict]['phrase'])
+        except KeyError:
+            print("Entry not found")
         #diplays key and value for dict retrieved. Returns to ask retrieve_option.
 
     elif retrieve_option == 'n':
@@ -131,7 +145,15 @@ def update():
     update_option = input("Would you like to update an entry? y/n :  ").lower()
 
     if update_option == 'y':
-        update_dict = input("Enter the updated information for the current phonebook entry:  ")
+        update_name = input("Enter the name for the current phonebook entry:  ")
+        print("Do you want to change %s?" % update_name)
+        print('y/n? : ')
+        updating = True
+        while updating:
+            try:
+                choice = input('> ').lower()
+                if choice == 'y' or choice 'yes':
+                    PHONEBOOK.append(update_name)
 
     elif update_option == 'n':
         clear_screen()
@@ -144,7 +166,7 @@ def delete():
 
     if delete_option == 'y':
         delete_dict = input("Enter the name, number or phrase for the phonebook entry you want to remove:  ")
-        
+
     elif delete_option == 'n':
         clear_screen()
         main_menu()

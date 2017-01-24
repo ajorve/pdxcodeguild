@@ -16,3 +16,17 @@
 'CamelCase.'
 
 """
+
+# 3 Functions of looping
+
+def snake_to_camel(word):
+    word = word.replace('_', ' ').title().replace(' ', '')
+    return(word)
+
+def which_case(word):
+    if '_' in word:
+        return "snake_case."
+    else:
+        return "CamelCase."
+
+    return result

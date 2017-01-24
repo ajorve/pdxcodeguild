@@ -16,3 +16,28 @@ REMEMBER: Use Encapsulation! D.R.Y.
 '1 2 Fizz 4 Buzz Fizz 7 8 Fizz Buzz 11 Fizz 13 14 FizzBuzz'
 
 """
+
+def fizz_buzz(stop_num):
+
+    number_list = list()
+
+    for each_number in range(1, stop_num + 1):
+
+        if each_number % 3 == 0 and each_number % 5 == 0:  #if each_number % 15 == 0:
+            number_list.append("FizzBuzz")
+
+        elif each_number % 3 == 0:
+            number_list.append("Fizz")
+
+        elif each_number % 5 == 0:
+            number_list.append("Buzz")
+
+        else:
+            number_list.append(each_number)
+
+    return number_list
+
+
+def joined_buzz(number):
+
+    return " ".join(fizz_buzz(number))

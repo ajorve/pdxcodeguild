@@ -1,5 +1,5 @@
 """
->> squares
+>>> squares
 [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 
 >>> square_halves
@@ -25,3 +25,24 @@
 ['Kieran', 'Prasch', 'Instructor', 'Alfonzo', 'Ward', 'Student', 'Fin', 'Balnik', 'Student']
 
 """
+
+squares = [i * i for i in range(1,11)]
+square_halves = [i // 2 for i in squares[1::2]]
+names = ['Kieran', 'Suki', 'Alex', 'Serada', 'Jeff', 'Fin', 'Alfonzo']
+
+def long_names(num):
+    name = [x for x in names if len(x) >= num]
+    return name
+
+def starts_with(letter):
+    name = [x for x in names if x[0] == letter]
+    return name
+
+def last_names(people):
+    name = [x[1] for x in people]
+    return name
+
+def smoosh(people):
+    denested_people = list()
+    name = [x for x in people for x in x]
+    print(name)

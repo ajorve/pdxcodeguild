@@ -72,7 +72,10 @@ def ms_clean():
     print(final_result)
 
 def strong_cleaner(sentence):
-
+    def strong_cleaner():
+    result = re.sub('[&@#$*%()!\d]', '', phrase)
+    final_result = re.sub('(?!=\W[A-Z])', '', result)
+    print(final_result)
 
 def extracto(sentence):
-    
+    # Needs to be completed

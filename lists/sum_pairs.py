@@ -14,3 +14,23 @@ Given a list of integers, find all pairs of numbers that when added equals the s
 [[1, 2], [1, 2]]
 
 """
+
+def find_sum_pairs(nums, x_sum):
+    """
+    Returns a list of pairs from nums of numbers that add up to the num.
+    """
+
+
+    result = [[n, i] for n in nums for i in nums if n+i == x_sum]
+
+    if result == result[::-1]:
+        result = result[:len(result)//2]
+
+    else:
+        for i in result:
+            for index, n in enumerate(result):
+                if i == n[::-1]:
+                    result.pop(index)
+
+
+    return result

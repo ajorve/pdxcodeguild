@@ -15,3 +15,6 @@ To run the test open your command line and enter:
 """
 
 # Write your function here.
+def knights():
+    knights = 'Knights who say Ni!':
+    print(knights)

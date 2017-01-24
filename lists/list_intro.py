@@ -25,3 +25,16 @@ m
 c
 
 """
+
+a = 'music'
+b = [17, 28, 42, 31, 12]
+
+def spell_out(llama):
+    for x in llama:
+        print(x)
+
+def first_and_last(llama):
+        first = llama[0]
+        last = llama[-1]
+        print(first)
+        print(last)
