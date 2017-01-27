@@ -30,16 +30,14 @@ Invalid!
 
 
 def validate(account_number):
-    if account_number <= 15 or x >= 17:
+    if len(account_number) <= 15 or len(account_number) >= 17:
         raise ValueError("Credit Card must be 16 digits in length.")
+    return True
 
 def check_digit(account_number):
     last_cc_num = account_number[-1]
     return last_cc_num
     # Slices off last digit of CC number.
-
-def reverse_digits(account_number):
-    return account_number.reverse()
 
 def double_everyother_digit(account_number):
     for index, digit in enumerate(account_number):
@@ -52,21 +50,27 @@ def double_everyother_digit(account_number):
         return account_number
 
 def sum_all_values(account_number):
-    account_number.sum()
+    return sum(account_number)
 
 def second_digit(account_number):
     second_digit = str(sum_all_values)
     second_digit[-1]
     return second_digit
 
-def run_program():
-    if validate is True:
-        if check_digit = second_digit:
-        pass:
+def run_program(account_number):
+    if validate(account_number) is True:
+        last_cc_num = check_digit(account_number)
+        _ = account_number.pop()
+        account_number.reverse()
+        doubled = double_everyother_digit(account_number)
+        summed = sum_all_values(account_number)
+        std_second_digit = second_digit(account_number)
+
+        if check_digit == std_second_digit:
             return "Vaild"
+
         else:
             return "Invalid"
 
-def excute():
-# Needs to be completed/
-excute()
+def excute(account_number):
+    run_program()

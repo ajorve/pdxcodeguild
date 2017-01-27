@@ -4,13 +4,13 @@ Use a combination of python string methods and regular expressions.
 
 Write, test, and refactor as you go.
 
->>> scrub_numbers('Be9autiful9 i4s be2tter th4an ug42ly')
+>>> scrub_numbers('Be9autiful9 i4s be2tter th4an ug42ly.')
 'Beautiful is better than ugly.'
 
->>> gentle_clean('Explicit_is-better_than -implicit')
+>>> gentle_clean('Explicit_is-better_than -implicit.')
 'Explicit is better than implicit.'
 
->>> clean_data('  42Simple-is_better_than-compl9ex   ')
+>>> clean_data('  42Simple-is_better_than-compl9ex.   ')
 'Simple is better than complex.'
 
 >>> some_scrubber('F l a t   i s   b e t t e r   t h a n   n e s t e d . ')
@@ -22,7 +22,7 @@ Write, test, and refactor as you go.
 >>> ms_clean('Readability counts')
 'R9y c4s'
 
->>> strong_cleaner('Err@#%$ors sho@#$@#$uld nev1!$#@er pass sile&I&&*(ntly')
+>>> strong_cleaner('Err@#%$ors sho@#$@#$uld nev1!$#@er pass sile&I&&*(ntly.')
 'Errors should never pass silently.'
 
 >>> extracto('1S2pe3cia4l ca5ses ar6en't sp7ecial en8ough to b9reak the r0ules.')
@@ -40,42 +40,53 @@ import re
 
 def scrub_numbers(sentence):
     result = re.sub('\d', '', sentence)
-    print(result)
+    return result
+
 
 def gentle_clean(sentence):
     result = re.sub('\s?[_\-]', ' ' , sentence)
-    print(result)
+    return result
+
 
 def clean_data(sentence):
-    result = re.sub('_\-]' , ' ', sentence)
-    final_result = re.sub('\d*' , '', result).strip()
-    print(final_result)
+    result = re.sub('[_\-]' , ' ', sentence)
+    final_result = re.sub('\d' , '', result).strip()
+    return final_result
+
 
 def some_scrubber(sentence):
-    result = phrase[::2]
-    print(result)
+    result = sentence[::2]
+    return result
+
 
 def mr_clean(sentence):
     result = sentence.replace('', ' ')
-    print(result)
+    return result
 
-def ms_clean():
+
+def ms_clean(sentence):
 
     def shorten(word):
         return word[0] + str(len(word)-2) + word[-1]
-    result = list()
 
-    for word in phrase.split():
-        result.append(shorten(word))
+    empty_list = list()
 
-    final_result = " ".join(result)
-    print(final_result)
+    for word in sentence.split():
+        empty_list.append(shorten(word))
+
+    final_result = " ".join(empty_list)
+    return final_result
+
 
 def strong_cleaner(sentence):
-    def strong_cleaner():
-    result = re.sub('[&@#$*%()!\d]', '', phrase)
+    result = re.sub('[&@#$*%()!\d]', '', sentence)
     final_result = re.sub('(?!=\W[A-Z])', '', result)
-    print(final_result)
+    return final_result
 
-def extracto(sentence):
-    # Needs to be completed
+
+def extracto(*args):
+    extracto = extracto.split()
+    first_count = str(len(re.findall('\d', extracto[0])))
+    second_number = str(re.findall('\d', extracto[1])[0])
+    result = first_count + second_number
+    return int(result)
