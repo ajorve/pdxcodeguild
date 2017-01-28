@@ -27,7 +27,8 @@ def peaks(sample_list):
         if sample_list[i+1] < num and sample_list[i-1] < num:
             output_list.append(i)
 
-        return output
+    return output_list
+
 
 def valleys(sample_list):
     output_list = list()
@@ -36,7 +37,8 @@ def valleys(sample_list):
         if sample_list[i+1] > num and sample_list[i-1] > num:
             output_list.append(i)
 
-        return output
+    return output_list
+
 
 def peaks_and_valleys(sample_list):
 

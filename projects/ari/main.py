@@ -101,7 +101,7 @@ def open_file(filename):
 
 
 def menu():
-    txtfiles = [f for f in os.listdir() if '.txt' in f]
+    txtfiles = [f for f in os.listdir('./books') if '.txt' in f]
     choices = dict(enumerate(txtfiles))
 
     print('To compute its automated readability index, pick from one of the files below:', end='\n')
@@ -124,9 +124,11 @@ def text_clean(text):
 
 
 def ari_score(scrubbed_text):
-    chars = len(re.findall('\w', scrubbed_text))
-    words = len(re.findall('\s*\S+\s*', scrubbed_text))
-    sentences = len(re.findall('\.\s*', scrubbed_text))
+    chars = len(re.findall('r\w', scrubbed_text))
+    words = len(re.findall('r\s*\S+\s*', scrubbed_text))
+    sentences = len(re.findall(r'[\.\?\!]\s*', scrubbed_text))
+
+
     score =  math.ceil(((((chars) // (words)) * 4.71) + (((words) // (sentences)) * 0.5)) - 21.43)
 
     ari_scale = {

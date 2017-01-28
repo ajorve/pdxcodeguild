@@ -38,55 +38,57 @@ Write, test, and refactor as you go.
 import re
 
 
-def scrub_numbers(sentence):
-    result = re.sub('\d', '', sentence)
+def scrub_numbers(phrase):
+    result = re.sub('\d', '', phrase)
     return result
 
 
-def gentle_clean(sentence):
-    result = re.sub('\s?[_\-]', ' ' , sentence)
+def gentle_clean(phrase):
+    result = re.sub('[\-_]', ' ', phrase).split()
+    result = " ".join(result)
     return result
 
 
-def clean_data(sentence):
-    result = re.sub('[_\-]' , ' ', sentence)
-    final_result = re.sub('\d' , '', result).strip()
+def clean_data(phrase):
+    result = re.sub('[\-\s_]', ' ', phrase)
+    final_result = re.sub('\d', '', result).strip()
     return final_result
 
 
-def some_scrubber(sentence):
-    result = sentence[::2]
+def some_scrubber(phrase):
+    '''result = phrase[::2]''' # this is another solution
+    result = re.sub('\s\s', ' ', phrase)
+    final_result = re.sub('(?<=\w)\s', '', result).rstrip()
+    return final_result
+
+
+def mr_clean(phrase):
+    result = phrase.replace('', ' ')
     return result
 
 
-def mr_clean(sentence):
-    result = sentence.replace('', ' ')
-    return result
-
-
-def ms_clean(sentence):
+def ms_clean(phrase):
 
     def shorten(word):
         return word[0] + str(len(word)-2) + word[-1]
 
-    empty_list = list()
+    result = list()
+    for word in phrase.split():
+        result.append(shorten(word))
 
-    for word in sentence.split():
-        empty_list.append(shorten(word))
-
-    final_result = " ".join(empty_list)
+    final_result = " ".join(result)
     return final_result
 
 
-def strong_cleaner(sentence):
-    result = re.sub('[&@#$*%()!\d]', '', sentence)
-    final_result = re.sub('(?!=\W[A-Z])', '', result)
+def strong_cleaner(phrase):
+    result = re.sub(r'[&@#$*%()!\d]', '', phrase)
+    final_result = re.sub(r'(?<=\w)[A-Z]', '', result)
     return final_result
 
 
-def extracto(*args):
-    extracto = extracto.split()
-    first_count = str(len(re.findall('\d', extracto[0])))
-    second_number = str(re.findall('\d', extracto[1])[0])
+def extracto(phrase):
+    extracted = phrase.split()
+    first_count = str(len(re.findall('\d', extracted[0])))
+    second_number = str(re.findall('\d', extracted[1])[0])
     result = first_count + second_number
     return int(result)

@@ -35,8 +35,3 @@ If you need to group together individual instances of a date and a rainfall amou
 
 """
 
-
-import json
-import requests
-from datetime import datetime
-
