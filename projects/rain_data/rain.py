@@ -35,3 +35,60 @@ If you need to group together individual instances of a date and a rainfall amou
 
 """
 
+
+def open_file(filename):
+    with open(filename) as requested_file:
+        text = requested_file.read()
+        return text
+
+
+def data_collection():
+
+    raw_data = open_file('./sample.rain')[290::]
+
+    data = raw_data.split('\n')[11:]
+
+    data_list = list()
+
+    for line_sum in data:
+        try:
+            data_list.append(list((line_sum[0:11], int(line_sum[14:17]))))
+        except ValueError:
+            continue
+
+    return data_list
+
+
+def helper(data_list):
+    return data_list[1]
+
+
+def rain(data_list):
+    highest_rain_date = max(data_list, key=helper)
+
+    years_dict = dict()
+
+    for day in data_list:
+
+        total = day[1]
+        year = day[0].split('-')[-1]
+        try:
+            years_dict[year].append(total)
+        except KeyError:
+            years_dict[year] = [total]
+
+    years_dict = {year: sum(daily_totals) for year, daily_totals in years_dict.items()}
+
+    highest_rain_year = max(years_dict.items(), key=lambda t: t[1])
+
+    return highest_rain_date, highest_rain_year
+
+
+def run_program():
+    data_list = data_collection()
+    day, year = rain(data_list) #unpacks highest_rain_date to day and highest_rain_year to year
+    print(f'The specific date with the most rain is {day[0]} with {day[1]} hundredths of an inch of rain.')
+    print(f'The year with the most rain is {year[0]}, with {year[1]} hundredths of an inch of rain.')
+
+if __name__ == "__main__":
+    run_program()
