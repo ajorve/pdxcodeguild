@@ -2,7 +2,7 @@
 Prompt the user for either an NFL conference and division or the name of an NFL team.
 Based on the response, return either a list of teams in that division or the name of the team's division.
 
->>> NFL_TEAMS = {'foo':{'bar':['baz']}}
+>>> NFL_TEAMS = {'foo': {'bar': ['baz']}}
 
 >>> get_teams_by_conference_and_division(NFL_TEAMS, 'foo', 'bar')
 ['baz']
@@ -12,23 +12,38 @@ Based on the response, return either a list of teams in that division or the nam
 """
 
 
-def get_teams_by_conference_and_division(teams, conference, division):
-    pass
+def get_teams_by_conference_and_division(league, conference, division):
+    print(league[conference][division])
+    return league[conference][division]
 
 
-def get_conference_and_division_by_team_name(teams, team_name):
-    pass
+def get_conference_and_division_by_team_name(league, team_name):
+    for conf, divisions in league.items():
+        for div, teams in divisions.items():
+            for team in teams:
+                if team_name in team:
+                    print(conf, div)
+                    return conf, div
 
-def main(teams):
+
+def main():
     """Prompt for user input, get a result from the data, print a nicely formatted answer"""
+    user_input = input("Enter the name of either a conference (AFC or NFC) or team. >>  ")
+    return user_input
 
-    user_input = input('Enter the name of either a conference (AFC or NFC) or team: ')
 
-    pass
+def run_program(league):
+    user_input = main()
+
+    if user_input in ('AFC', 'NFC'):
+        division = input("In which division? >>  ")
+        get_teams_by_conference_and_division(league, user_input, division)
+
+    else:
+        get_conference_and_division_by_team_name(league, user_input)
 
 
 if __name__ == '__main__':
-
     NFL_TEAMS = {
         'AFC': {
             'East': ['Buffalo Bills', 'Miami Dolphins', 'New England Patriots', 'New York Jets'],
@@ -44,4 +59,4 @@ if __name__ == '__main__':
         }
     }
 
-    main(NFL_TEAMS)
+    run_program(NFL_TEAMS)

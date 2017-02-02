@@ -11,8 +11,8 @@ t o
 s t
 """
 
-def together(*args):
-    for x, y in zip('knights', 'camelot'):
-        print(x, y)
+def together(x, y):
+    for a, b in zip(x, y):
+        print(a, b)
 
-together()
+
