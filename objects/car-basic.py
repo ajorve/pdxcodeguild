@@ -14,7 +14,14 @@ honk
 """
 
 class Car:
-    pass
+    def __init__(self, color, wheels, doors):
+        self.color = color
+        self.number_of_wheels = wheels
+        self.doors = doors
 
-    def honk():
-        pass
+    def __str__(self):
+        return "{0.color} , #{0.wheels}, {0.doors} ".format(self)
+
+
+    def honk(self):
+        return "HONK!"

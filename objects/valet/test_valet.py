@@ -1,5 +1,5 @@
 import unittest
-from valet import Vehicle, ParkingLot
+from . import valet
 
 
 class TestValet(unittest.TestCase):
@@ -8,16 +8,16 @@ class TestValet(unittest.TestCase):
         """
         Create a few instances before we start testing.
         """
-        self.mikes_lot = ParkingLot(capacity=3, rate=20)
-        self.mustang = Vehicle(color='red', plate='PDXFTW')
-        self.honda = Vehicle(color='cyan', plate='EWR456')
-        self.lemon = Vehicle(color='black', plate='HGH72L')
+        self.mikes_lot = valet.ParkingLot(capacity=3, rate=20)
+        self.mustang = valet.Vehicle(color='red', plate='PDXFTW', doors='2')
+        self.honda = valet.Vehicle(color='cyan', plate='EWR456', doors ='2')
+        self.lemon = valet.Vehicle(color='black', plate='HGH72L', doors='4')
 
     def test_initial_lot_creation(self):
         """Ensure that we can initialize the Parking Lot Object correctly."""
         self.assertIsNotNone(self.mikes_lot)
-        self.assertEqual(self.mikes_lot.capacity, 3)
-        self.assertEqual(self.mikes_lot.available_spaces, self.mikes_lot.capacity)
+        self.assertEqual(self.mikes_lot._capacity, 3)
+        self.assertEqual(self.mikes_lot.available_spaces, self.mikes_lot._capacity)
         self.assertEqual(self.mikes_lot.available_spaces, 3)
         self.assertEqual(self.mikes_lot.hourly_rate, 20.0)
 
@@ -26,10 +26,11 @@ class TestValet(unittest.TestCase):
         self.assertIsNotNone(self.lemon)
         self.assertEqual(self.lemon.color, 'black')
         self.assertEqual(self.lemon.plate, 'HGH72L')
+        self.assertEqual(self.lemon.doors, '4')
 
     def test_lot_available_space_tracking(self):
         """Ensure we are tracking space availabilty correctly."""
-        self.assertEqual(self.mikes_lot.available_spaces, self.mikes_lot.capacity)
+        self.assertEqual(self.mikes_lot.available_spaces, self.mikes_lot._capacity)
         self.assertEqual(self.mikes_lot.available_spaces, 3)
         self.mikes_lot.park(self.mustang)
         self.assertNotEqual(self.mikes_lot.available_spaces, 3)
@@ -37,7 +38,7 @@ class TestValet(unittest.TestCase):
 
     def test_vehicle_park(self):
         """Park the car"""
-        self.assertEqual(self.mikes_lot.available_spaces, self.mikes_lot.capacity)
+        self.assertEqual(self.mikes_lot.available_spaces, self.mikes_lot._capacity)
         self.assertEqual(self.mikes_lot.available_spaces, 3)
         self.mikes_lot.park(self.mustang)
 
@@ -47,8 +48,8 @@ class TestValet(unittest.TestCase):
         self.mikes_lot.park(self.honda)
         self.mikes_lot.park(self.lemon)
 
-        delaurean = Vehicle(color='invisible', plate='FUTURE')
-        self.assertEqual(self.mikes_lot.park(delaurean), False)
+        delaurean = valet.Vehicle(color='invisible', plate='FUTURE', doors='2')
+        self.assertEqual(self.mikes_lot.park(delaurean), "Lot is Full")
 
     def test_vehicle_pickup(self):
         """Go get the car"""
