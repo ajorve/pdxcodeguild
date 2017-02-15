@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Fun with FORMS!</title>
+</head>
+<body>
+<header>
+    <h1>Fun with Forms!</h1>
+</header>
+<style>
+    body{
+        background-color: #1b6d85;
+        text-align: center;
+        text-emphasis-position: right;
+        text-decoration-style: solid;
+    }
+    input:invalid{
+        color: red;
+    }
+    input:valid{
+        color: green;
+    }
+
+</style>
+
+	<h2>Fill out the following information..</h2>
+	<main>
+		<form>
+			<form action="action_page.php" method="get">
+				<fieldset>
+                    What did you eat for dinner?:<br>
+                    <input type="text" name="eat" placeholder='Dinner'required><br>
+                    <hr>
+                    Items:<br>
+                    <input type="checkbox" name="meat" placeholder='Meat' required>Meat?<br>
+                    <input type="checkbox" name="cheese" placeholder='Cheese' required>Cheese?<br>
+                    <input type="checkbox" name="potatoes" placeholder='Potatoes' required>Potatoes?<br>
+                    <input type="checkbox" name="broccoli" placeholder='Broccoli' required>Broccoli?<br>
+                    <input type="checkbox" name="fruit" placeholder='Fruit' required>Fruit?<br>
+                    <hr>
+                    Vegetarian?:<br>
+                    <input type="radio" name="veg" value="Vegetarian" checked> Vegetarian<br>
+                    <input type="radio" name="non_veg" value="No Meat"> Non-Vegetarian<br>
+                    <br>
+                    <br>
+                    Ice Cream for dessert?:<br>
+                    <select inlist="Ice Cream" name="Ice_Cream" placeholder='Ice Cream' required><br>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Vanilla">Vanilla</option>
+                        <option value="Peppermint">Peppermint</option>
+                        <option value="Spumoni">Spumoni</option>
+                        <option value="Pistachio">Pistachio</option>
+                    </select>
+                    <br>
+                    <br>
+                    <input class='alert-success' type="submit" value="Submit">
+                    <br>
+                    <br>
+                    <textarea name="message" rows="10" cols="30" placeholder="Tell me about your most memorable dinner experience."></textarea>
+                    <hr>
+                    Please Upload a Photo!:
+                    <input type="file" name="photo" placeholder='photo'><br><br>
+                </fieldset>
+			</form>
+		</form>
+
+	</main>
+
+</body>
+</html>

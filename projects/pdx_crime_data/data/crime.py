@@ -71,9 +71,11 @@ def run_program():
     crimes_data = quantify_crime(crimes)
     crimes_counts = {offense: len(c_data) for offense, c_data in crimes_data.items()}
 
-    # for offense, count in sorted(crimes_counts.items(), key=lambda t: t[1], reverse=True):
-    #     print(offense, count)
+    for offense, count in sorted(crimes_counts.items(), key=lambda t: t[1], reverse=True):
+        print(offense, count)
 
     result = (max(crimes_counts.items(), key= lambda crime: crime[1]))
-    # print("For {filename[-15:]}, {result[0]} has the most incidents with {result[1]}. ")
+    print(f"For {filename[-15:]}, {result[0]} has the most incidents with {result[1]}. ")
     return result, crimes_counts
+
+run_program()

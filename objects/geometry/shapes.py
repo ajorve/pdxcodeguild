@@ -19,9 +19,6 @@ class Point(object):
     def __repr__(self):
         return self.__repr__()
 
-    def __eq__(self):
-        return self.__eq__()
-
 
 class Shape(object):
     def __init__(self, t="shape"):
@@ -35,6 +32,9 @@ class Shape(object):
     def __repr__(self):
         print("In shape __repr__: ")
         return self.__str__()
+
+    def __eq__(self):
+        return self.__eq__()
 
 
 class Rectangle(object):

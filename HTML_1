@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<title>My First HTML Document</title>
+<body>
+
+body {
+    background-color: lightblue;
+}
+h1 {
+    color: white;
+    text-align: center;
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+<h1>This is my first HTML project. More to come!</h1>
+<p>I will be creating a new web application using Python... coming soon!</p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("demo");
+    x.style.fontSize = "25px"; 
+    x.style.color = "red"; 
+}
+</script>
+
+<button onclick="myFunction()">Click Me!</button>
+Try it Yourself »
+
+
+
+
+</body>
+</html>

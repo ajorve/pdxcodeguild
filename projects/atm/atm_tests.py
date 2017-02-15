@@ -1,5 +1,5 @@
 import unittest
-from solution.ATM import Account
+from .atm import Account
 
 
 class TestAccountCreation(unittest.TestCase):
@@ -20,6 +20,7 @@ class TestAccountCreation(unittest.TestCase):
         test_account = Account.from_csv_string(record)
         self.assertEqual(test_account.balance, 151.50)
         self.assertEqual(test_account.account_type, 'checking')
+
 
 class TestAccountOperations(TestAccountCreation):
 
