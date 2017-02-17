@@ -1,0 +1,60 @@
+html{
+    background-image: ;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+    height: 100px;
+    width: 100%;
+    background-color: black;
+}
+
+
+div {
+    height:80%;
+    background-color: whitesmoke;
+    margin: 10px;
+}
+
+
+section, div {
+    border: 2px solid black;
+}
+
+
+#first div {
+    width: 100%;
+}
+
+
+#second :first-child {
+    width: 80%;
+}
+
+
+#second :last-child {
+    width: 20%;
+}
+
+
+#third {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#third div {
+    width: 90px;
+}

@@ -1,0 +1,45 @@
+body{
+    margin 0;
+}
+
+html{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    border-radius: 15px;
+    margin: 1cm;
+    width: 25%;
+    max-height: 50%;
+    background-color: #5bc0de;
+}
+
+.card header{
+    display: flex;
+    justify-content: center;
+
+}
+
+article{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin: 2em;
+
+}
+
+.card footer{
+    display: flex;
+    justify-content: center;
+}
+
+img{
+    width: 100px;
+    max-height: 100px;
+
+}
+
