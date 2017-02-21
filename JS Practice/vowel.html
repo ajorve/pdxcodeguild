@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script>
+
+    var letter_input = prompt("Please enter a letter. >> ");
+    var vowels = ['a', 'e', 'i', 'o', 'u'];
+
+    (function vowel(){
+    if (vowels.indexOf(letter_input) !== -1) {
+        alert('This is a vowel!');
+    } else {
+        alert('This is NOT a vowel!');
+    }
+    })();
+
+</script>
+</body>
+</html>

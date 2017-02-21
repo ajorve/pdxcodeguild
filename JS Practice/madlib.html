@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Madlibs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="madlib.js" type="application/javascript"></script>
+</head>
+
+
+<body>
+    <div class="container-fluid col-md-6">
+      <h1>Please enter the words to complete your Madlib form!</h1>
+
+      <div id="blanks">
+        <form>
+          <div class="form-group">
+            <label for="person1">Your Name</label>
+            <input id="person1" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="person2">Another Name</label>
+            <input id="person2" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="animal">A Tool</label>
+            <input id="animal" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="exclamation">A Swear</label>
+            <input id="exclamation" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="verb">Something That Happened In The Past</label>
+            <input id="verb" class="form-control" type="text">
+          </div>
+          <div class="form-group">
+            <label for="noun">A Noun</label>
+            <input id="noun" class="form-control" type="text">
+          </div>
+
+          <button type="submit" class="btn">Show Madlib!</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="story">
+      <div class="container-fluid col-md-6">
+        <h1>You're Screwed</h1>
+        <p>One day, <span class="person1"></span> and <span class="person2"></span> will be sitting peacefully in your home, when suddenly a giant <span class="animal"></span> will fly through the window and impail your head. "<span class="exclamation"></span>", <span class="person1"></span> cried. The two of them <span class="verb"></span> as quickly possible, and when they were safe, <span class="person1"></span> and <span class="person2"></span> gave each other a giant <span class="noun"></span>.</p>
+      </div>
+    </div>
+</body>
+</html>
