@@ -19,6 +19,6 @@
 
     }
 
-    var word = prompt("What word or number would you like to check if palindrome? >> ")
+    var word = prompt("What word or number would you like to check if palindrome? >> ");
     palindrome(word);
 })();
