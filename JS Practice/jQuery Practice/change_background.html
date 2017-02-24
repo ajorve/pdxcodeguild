@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change the Background</title>
+    <script
+        src="http://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body class="body">
+<hr>
+<h1>Change the Background</h1>
+<hr>
+</body>
+<script>
+    var $background = $('html');
+    user_input = prompt("What color would you like the background changed to? >> ");
+    $background.css({'background-color': user_input});
+</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Foo</title>
+    <script
+            src="http://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<p data-right='false' id="foo">FOO</p>
+</body>
+<script>
+    $('#foo').click(function (evt) {
+        evt.preventDefault();
+        //above prevents page from refreshing
+        if ($(this).attr('data-right') === 'false') {
+            $(this).animate({
+                right: "+=100",
+                margin: "100px",
+                fontSize: "100px"
+            }, 2000);
+            $(this).attr('data-right', 'true');
+
+        } else {
+            $(this).animate({
+                left: "+=100",
+                margin: "0px",
+                fontSize: "16px"
+            }, 2000);
+            $(this).attr('data-right', 'false');
+        }
+
+    });
+</script>
+</html>

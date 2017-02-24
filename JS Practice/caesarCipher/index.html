@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Caesar Cipher</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <!-- ==========================
+        CSS
+    =========================== -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="css/creative-brands.css" rel="stylesheet" type="text/css">
+    <link href="css/vertical-carousel.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+<section class="container">
+    <form id="cipher">
+        <div class="container">
+            <div class="head">
+                <h2>Enter a message and key for Encryption<i class="fa fa-code"></i>Decryption</h2>
+            </div>
+            <!--<input type="text" name="name" placeholder="Name"/><br/>-->
+            <input type="number" name="key" placeholder="Key"/><br/>
+            <textarea type="text" id="userInput" name="message" placeholder="Message"></textarea><br/>
+            <div class="message">Message Encrypted</div>
+            <button id = "encrypt" name="encrypt" type="submit">
+                Encrypt!
+            </button>
+            <button id = "decrypt" name="decrypt" type="submit">
+                Decrypt!
+            </button>
+        </div>
+    </form>
+</section>
+
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='http://ajax.aspnetcdn.com/ajax/jquery.validate/1.12.0/jquery.validate.min.js'></script>
+<script src="js/site.js" type="application/javascript"></script>
+<script src="js/encrypt.js" type="application/javascript"></script>
+
+</body>
+</html>

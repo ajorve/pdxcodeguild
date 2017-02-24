@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The None Grid</title>
+    <script
+            src="http://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>The <a id="head_text">None</a> Grid.</h1>
+<hr>
+<ul id='grid'>
+    <li>Tiger</li>
+    <li>Dragonfly</li>
+    <li>Raven</li>
+    <li>Panda</li>
+    <li>Shark</li>
+    <li>Kangaroo</li>
+</ul>
+<hr>
+</body>
+<style>
+    h1 {
+        text-align: center;
+    }
+
+    #grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-content: center;
+        flex-direction: row;
+        list-style-type: none;
+        padding: 20px;
+        margin: 5px;
+    }
+
+    li {
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+        height: 100px;
+        width: 150px;
+        background-color: #535640;
+        text-align: center;
+        list-style-type: none;
+        justify-content: center;
+        margin: 5px;
+    }
+
+</style>
+<script>
+
+//    TODO: Write more comments.
+
+(function color_change() {
+    var $colors = ['red', 'blue', 'green', 'yellow', 'magenta', 'turquoise'];
+    var $box = $('li');                                         // Select all the list items.
+
+    $($box).hover(function (evt) {                              // Attach an event listener to each li.
+        evt.preventDefault();                                   //above prevents page from refreshing.
+        var size = Number($colors.length);                      // Capture the length of the array.
+        var choice = Math.floor(size * Math.random());          // Choose a random number in the range.
+        $(this).css({'background-color': $colors[choice]});
+        var $current_hover = $(this).text();
+        $('#head_text').text($current_hover);
+    });
+})();
+
+</script>
+</html>
+
+<!--THIS IS NOW WORKING!-->
