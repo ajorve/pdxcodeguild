@@ -21,54 +21,86 @@ Current Scope of Work:
 
 Here is a mockup using [draw.io](https://draw.io/) showing some basic ideas.
 
+Here is the [link](docs/twf_mockups.pdf) to the PDF image of the vision I have for this project. 
+
 
 ### Data Model
 
-What are the persistent "nouns" you need to save across pages in your project MVP?
-What do they represent?
+Nouns:
+* USER
+* JOURNEY
+* LOCATION
+* EVENT (Future Build)
+
+Verbs:
+* Register
+* Login
+* Create Profile
+* Edit Profile
+* Search Users, Journey, and Event
+* Checking-In on Journey
+* Traversing Location (List)
+* Viewing Location  (Map)
+* Create Event 
+* Edit Event
+
+
+USER {
+    userID, userName, firstName, lastName, homeLocation, userImage, userNumber} 
+    
+  
+JOURNEY {
+    journeyID, locationID, eventID, journeyDetails, userID_tag}
+    
+LOCATION {
+    geoTag, locationID, mapArea, radius, userID_tag,}
+    
+    
 
 We'll be using a relational database which models things like a spreadsheet.
 There are fixed fields and every instance
 
-How do you need to _search_ for specific instances of nouns?
+Since Postgres will be used, querying data by specific ID's that will link each User, Journey, and Place with a locationID.
 
 ### Technical Components
 
-What are the "moving parts" of your MVP?
-What are the things like "modules" you're going to write?
-How do they talk to each other?
+There will be 3 main Modules for this project:
 
-_Make decisions_ here and now.
-Do research and prototyping to figure out what libraries and technologies will help you solve your problems.
-Write up which ones you'll use.
-It's okay if they end up not working and you have to change your plans.
+* user
+* journey
+* location
 
-This is _more specific_ than "Django backend, CSS style, etc."
-Please specify what specific technical problems you'll have to solve and a guess at the solution.
+Using these technologies:
+
+* Browser Geolocation
+* [Google Maps API JS/REST](https://developers.google.com/maps/documentation/javascript/?hl=en_US)
+* SQLITE3 for database backend
+* pytest
+
+* HTML, CSS, JS, jQuery, BS4
+* Django REST Framework
+* [Cordova](https://cordova.apache.org/)
+* [Twilio](https://www.twilio.com/?mkwid=s5YsI2dSk&pdv=c&pcrid=166298610378&pmt=e&pkw=twilio&campaign=G_S_Brand_Alpha_NA&utm_source=google&utm_medium=cpc&utm_term=twilio&utm_campaign=G_S_Brand_Alpha_NA&utm_content=Brand&gclid=Cj0KEQiA0L_FBRDMmaCTw5nxm-ABEiQABn-VqWpOgOYR24O93xODtHaATUJcdyqFQYtvQJxYBoguPdQaAhpj8P8HAQ) (User Device Auth)
+
+The front-end will be a light weight framework with a robust back-end framework using Django and REST API to communicate data to and from the web application.
 
 ### Schedule
 
-Write out the order in which you will tackle your technical components of your MVP.
-
-What are the easy parts?
-What are the hard parts?
-Can you guess how long you'll take for each?
-
-Work on the tough and crucial parts first.
+1. Create pages for the front end, designing specifically for mobile device usage.
+2. Create JS modules that can communicate AJAX calls to the back-end DB.
+3. Using Python, BS4, and Django REST Framework, allow for incomming requests and responses. 
 
 ### Further Work
 
-All of the above parts are _just addressing your MVP_.
-Here you should outline other features you'd like to implement if you get "done" early.
-Order them by importance towards your high-level goal and what order you'll work on them later.
+Features to be rolled out in the future product releases:
 
-Don't work on any of these features until **all of MVP is complete**.
+1. Event creation
+2. Business information and reviews
+3. Communication between users, first annonymously, then allowed for user data to be shared.
+4. Reviews and feedback, ratings that give weight to users good advice and info.
+5. Upload images to Journey libraries.
+6. Image text tranlation and comments using [Tesseract](http://tesseract.projectnaptha.com/)
 
 ## Submission
 
-Create a _new_ git repo based on your project name [in GitHub](https://github.com/new).
-Init that repository with a readme.
-Write up your proposal as `proposal.md` and link to it from the readme.
-I don't care that you learn all of the fancy parts of [writing Markdown documentation](https://help.github.com/articles/basic-writing-and-formatting-syntax/), but just get some basic sections that follow the rubric above.
-
-Email me the URL to your capstone repo on GitHub before the proposal is due.
+Capstone "Travel With Friends" available to review files and README.md via BitBucket in PDX Code Repo - File named "Capstone"
