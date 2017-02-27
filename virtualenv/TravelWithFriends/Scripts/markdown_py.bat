@@ -1,0 +1,1 @@
+@"c:\users\anders\desktop\pdx_code\practice\virtualenv\travelwithfriends\scripts\python.exe" "c:\users\anders\desktop\pdx_code\practice\virtualenv\travelwithfriends\Scripts\markdown_py" %*
