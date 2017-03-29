@@ -50,7 +50,8 @@ import re
 def quantify_words():
     word_counts = dict()
     question = input("What sentence would you like to quantify? (Leave Blank to Exit) >> ").lower()
-    question = question.replace(',' , '').replace('.' , '').replace('""', '').replace('\n', '') # use regex re.sub('\d\w\W*', '') to remove all special characters and digits.
+    question = question.replace(',', '').replace('.', '').replace('""', '').replace('\n', '')
+    # use regex re.sub('\d\w\W*', '') to remove all special characters and digits.
     answer = question.split()
 
     if question == "":
@@ -67,4 +68,6 @@ def quantify_words():
 
     return None
 
+
 quantify_words()
+

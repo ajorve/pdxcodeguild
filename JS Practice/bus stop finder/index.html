@@ -19,24 +19,32 @@
 <script>
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 16,
-            center: {lat: 45.5042955, lng: -122.67504960000001}
+            zoom: 15,
+            center: {lat: 45.5042955, lng: -122.6750496},
+            mapTypeId: google.maps.MapTypeId.TERRAIN
+
         });
+        var weatherLayer = new google.maps.weather.WeatherLayer({
+            temperatureUnits: google.maps.weather.TemperatureUnit.FAHRENHEIT
+        });
+        weatherLayer.setMap(map);
         var image = 'person.png';
         var user_marker = new google.maps.Marker({
-            position: {lat: 45.5042955, lng: -122.67504960000001},
+            position: {lat: 45.5042955, lng: -122.6750496},
             map: map,
             icon: image,
             title: 'You are here.'
 
-
         });
+
     }
 </script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfr-G5gPX-mXDbH-GIj9puZtXa9TELc5A
 &callback=initMap">
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=weather"></script>
+
 </body>
 <script src="site.js" type="application/javascript"></script>
 </html>
